@@ -7,6 +7,13 @@ terraform {
       version = ">= 5.80"
     }
   }
+
+  # NOTE: Don't forget to change the bucket and table names!
+  backend "s3" {
+    bucket         = "aaron-scoreboard-statestoragebucket-erum0yzjprd3"
+    key            = "aaron-scoreboard.tfstate"
+    dynamodb_table = "aaron-scoreboard-StateLockingTable-OMD46M9ZDFT0"
+  }
 }
 
 provider "aws" {
